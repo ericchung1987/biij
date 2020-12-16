@@ -21,8 +21,8 @@ app.get("/editorial", function(req, res){
     res.render("editorial.ejs");
 });
 
-app.get("/instruction", function(req, res){
-    res.render("instruction.ejs");
+app.get("/instruction-work", function(req, res){
+    res.render("instruction-work.ejs");
 });
 
 app.get("/workflow", function(req, res){
