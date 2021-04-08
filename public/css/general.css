@@ -1,0 +1,405 @@
+html {
+	height: 100%;
+}
+
+body {
+    background-color: #fff3e6;
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+    /*Set this font to default*/
+
+    /* Because we make the nav bar static, set padding to so that the nav bar doesnt block the content */
+    /* padding-top: 100px; */
+
+}
+
+.main-page-container{
+    margin-top: 150px;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+/* Set the colour of the navbar - removing this will turn the colour off */
+.navbar {
+    background-color: #0d335d;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+/* Title and subtitle related CSS setting */
+.column {
+    float: left;
+    width: 35%;
+}
+
+#j-title {
+    font-family: 'Roboto', serif;
+    font-size: 46px;
+    color: #e48257;
+}
+
+.row:after {
+    display: table;
+    clear: both;
+    /* Clear floats after the columns */
+}
+
+#j-subtitle {
+    font-size: 15px;
+    margin-top: 11px;
+
+}
+
+#j-subtitle p {
+    margin: 0px;
+}
+
+/* Create a bit of spacing between navbar item  */
+#navbarCollapse .nav-item {
+    margin-right: 15px;
+}
+
+.nav-item a{
+    font-size: 16px;
+}
+
+
+
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+
+
+#promotionPopUp .modal-content {
+    background-color: transparent;
+    border: 0px none transparent;
+}
+
+#imagePopUp .modal-content {
+    background-color: rgba(229, 234, 240, 0.95);
+    border: 0px none transparent;
+}
+
+#imagePopUp .modal-header {
+    border: 0px none transparent;
+}
+
+/* make it so that the cursor change to pointer on hover image. */
+section .figure img{
+    cursor: pointer;
+}
+
+
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+/* Style the notice board */
+
+.notice {
+    padding: 0px 20px 5px 20px;
+    background-color: #0d335d;
+}
+
+.ui-highlight {
+    background-color: #fff3e6;
+    /* Make rounded corner */
+    border-radius: 10px;
+}
+
+.notice p {
+    font-size: 0.85rem;
+    margin: 0px;
+    padding: 5px 0px 3px 20px;
+}
+
+
+/* ----------------------------------------------------------------------------------------------------------------------------- */
+
+.bg-grey {
+    background: #0d335d;
+}
+
+footer {
+    color: whitesmoke;
+}
+
+footer p,
+a {
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(255,255,255,.55);
+}
+
+footer h4 {
+    font-family: 'Roboto', serif;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+footer h4:after {
+    position: absolute;
+    content: "";
+    background: grey;
+    width: 28%;
+    height: 1px;
+    /* move the line to the left */
+    left: 0;
+    /* move the line below the title */
+    bottom: -15px;
+}
+
+.btn-footer {
+    color: rgba(255,255,255,.55);
+
+    text-decoration: none;
+    border: 1px solid;
+    border-radius: 43px;
+    font-size: 13px;
+    padding: 7px 30px;
+    line-height: 47px;
+}
+
+.btn-footer:hover {
+    text-decoration: none;
+}
+
+.form-footer input[type="text"] {
+    border: none;
+    border-radius: 16px 0 0 16px;
+    outline: none;
+    padding-left: 10px;
+}
+
+::placeholder {
+    font-size: 10px;
+    padding-left: 10px;
+    font-style: italic;
+}
+
+.form-footer input[type="button"] {
+    border: none;
+    background: #232323;
+    margin-left: -5px;
+    color: #fff;
+    outline: none;
+    border-radius: 0 16px 16px 0;
+    padding: 2px 12px;
+}
+
+/* animate the sign me up button in keeping with the themes */
+.form-footer input[type="button"]:hover{
+    background: #fff3e6;
+    color: #0d335d;
+
+}
+
+/* social media icon */
+.social .fa {
+    color: rgba(255,255,255,.55);
+    font-size: 22px;
+    padding: 10px 15px;
+    background: #3c3c3c;
+}
+
+footer ul li {
+    list-style: none;
+    display: block;
+}
+
+footer ul {
+    padding-left: 0;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: rgba(255,255,255,.55);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: #f5f5f5 !important;
+}
+
+
+#about-biij p{
+    /* https://css-tricks.com/almanac/properties/t/text-justify/ */
+    text-align: justify;
+    /* Specifies that text is justfiied by adjusting the spacing between characters, effectively creating additional character spacing. */
+    text-justify: inter-character;
+    margin-right: 20px;
+}
+
+#email{
+    font-weight: bold;
+    color: black;
+}
+
+.list-group-item{
+    background-color: transparent;  
+    font-style: italic;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------ */
+
+/* for the submission part */
+
+.instructions p{
+    text-indent: 40px;
+    margin: 10px 0px;
+}
+.instructions h1, h2, h3, h4, h5, h6{
+    font-family: 'Roboto', serif;
+}
+
+
+.instructions h5{
+    font-family: 'Roboto', serif;
+    padding: 20px 0px;
+}
+
+.instructions article{
+    padding: 40px 0px;
+}
+
+#tab-heading{
+    font-family: 'Roboto', serif;
+    text-align: center;
+    margin: 20px 0px;
+}
+
+article a{
+    /* make all paragrah start with an indent */
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    color: black;
+
+}
+
+.instructions li{
+    margin: 20px 0px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------ */
+/* For event pages */
+
+#nav-editorteam a{
+    color: black;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.team-main{
+    font-family: 'Roboto', serif;
+    font-size: 18px; 
+    margin: 0px;
+}
+
+.team-sub{
+   font-size: 10px; 
+   margin: 0px;
+}
+
+#nav-editorteam{
+    padding: 40px 0px;
+}
+
+#nav-editorteam h1{
+    padding-bottom: 20px;
+    font-family: 'Roboto', serif;
+}
+
+#nav-editorteam th{
+    font-family: 'Roboto', serif;
+}
+
+.event-title{
+    font-family: 'Roboto', serif;
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.card-header h5{
+    font-family: 'Roboto', serif;
+}
+
+.video-center{
+    text-align: center;
+}
+
+.video-card{
+    height: 280px;
+}
+
+
+
+/* --------------------------------------------------------------------------------------------------------- */
+
+#anatomylabel{
+    position: fixed;
+    background-color: transparent;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0.9;
+
+}
+
+#cisternLabel{
+    color: rgb(255, 99, 71);
+    font-weight: bold;
+    
+
+}
+
+#muscleLabel{
+    color: rgb(0, 64, 255);
+    font-weight: bold;
+}
+
+#orbitLabel{
+    color: rgb(127,255,0);
+    font-weight: bold;
+}
+
+#ventricleLabel{
+    color: rgb(0, 102, 153);
+    font-weight: bold;
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* For article page */
+.topic-title{
+    font-family: 'Roboto', serif;
+}
+
+#pills-tabContent a{
+    font-family: 'Roboto', serif;
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+}   
+
+#pills-tabContent p{
+    font-family: 'Open Sans', sans-serif;
+    color: black;
+    font-size: 10px;
+}   
+
+#pills-tabContent p span{
+ 
+    font-size: 8px;
+}   
+
+
+/* editorial page */
+
+#editorial-board a{
+    text-decoration: none;
+    color: black;
+    font-size: 18px
+}
+
+#editorial-board h1{
+    font-family: 'Roboto', serif;
+}

@@ -1,0 +1,78 @@
+
+.read-buttons {
+    margin-top: 25px;
+}
+
+.read-buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    outline: none;
+    padding: 0;
+    margin: 0px 0px 0px 40px;
+
+}
+
+#play {
+    background-image: url(../images/symbols/play.svg);
+}
+
+#play.played {
+    background-image: url(../images/symbols/play-on.svg);
+}
+
+#pause {
+    background-image: url(../images/symbols/pause.svg);
+}
+
+#pause.paused {
+    background-image: url(../images/symbols/pause-on.svg);
+}
+
+#stop {
+    background-image: url(../images/symbols/stop.svg);
+}
+
+#stop.stopped {
+    background-image: url(../images/symbols/stop-on.svg);
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+/* Bundle dark mode together with text2speech since they are usually implemented together */
+
+
+.dark-mode{
+    background-color: rgb(27, 17, 17) !important;
+    color: white;
+}
+
+.dark-mode-text{
+    color: white;
+}
+
+.dark-mode-box{
+    background-color: rgba(44, 41, 41, 0.8) !important;
+}
+
+.dark-mode-bar{
+    background-color: rgb(44, 41, 41) !important;
+    color: white;
+}
+
+.dark-mode-pop{
+    background-color: rgb(44, 41, 41) !important;
+}
+
+/* Darkmode symbol buttons */
+#darkmode{
+    background-image: url(../images/symbols/darkmode.svg);
+   
+}
+
+#darkmode.on{
+    background-image: url(../images/symbols/darkmode-on.svg);
+   
+}
+

@@ -1,0 +1,77 @@
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* set the article header page with a gradient background */
+.articleTitle{
+    position: relative;
+    background: rgb(13,51,93);
+    background: linear-gradient(163deg, rgba(13,51,93,1) 48%, rgba(193,161,211,1) 100%);
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.articleType {
+
+    color: white;
+    padding-bottom: 10px;
+    padding-top: 30px;
+
+}
+
+.articleAuthor {
+
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.articleName a{
+    color: white;
+    padding: 10px 0px;
+    text-decoration: none;
+
+}
+
+
+
+
+/* issue highlight */
+
+.box-upper{
+    padding: 20px;
+    border-bottom: 2px solid black;
+}
+
+.box-upper p{
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+.box-upper a{
+    text-decoration: none;
+    color:  #e48257;
+}
+
+#articleTabContent{
+    margin : 0px 20px;
+    padding-bottom: 20px;
+}
+
+.mainpage-title{
+    padding-bottom: 10px;
+    
+}
+
+.border-at-bottom{
+    border-bottom: 1px solid black;
+}
+
+#title-caption h6{
+    margin: 0;
+}
+
+#title-caption figcaption{
+    padding-top: 20px;
+}
+
+#profile-pic-main{
+    padding-top: 20px;
+}

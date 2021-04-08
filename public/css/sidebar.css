@@ -1,0 +1,198 @@
+/* ------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0px;
+    left: -250px;
+    
+    background-color: #1a508b;
+    opacity: 0.95;
+    transition: 0.5s;
+    padding-top: 120px;
+    width: 250px;
+    /* scroll settings */
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+
+}
+
+
+.sidenav::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.sidenav a {
+    font-family: 'Open Sans', sans-serif;
+    margin: 10px 30px;
+    text-decoration: none;
+    font-size: 14px;
+    color: rgba(255,255,255,.55);
+    display: block;
+    transition: 0.3s;
+    text-align: center;
+    
+}
+
+.sidenav h3 {
+    font-family: 'Roboto', serif;
+    position: relative;
+    text-align: center;
+    color: #e48257;
+    margin: 15px 30px;
+    size: 18px;
+}
+
+.sidenav h3:after {
+    position: absolute;
+    content: "";
+    background: rgb(20, 2, 2);
+    width: 70%;
+    height: 1px;
+    /* move the line to the left */
+    left: 35px;
+    /* move the line below the title */
+    bottom: -10px;
+}
+
+.sidenav h4 {
+    font-family: 'Roboto', serif;
+    position: relative;
+    text-align: center;
+    color: #e48257;
+    margin: 20px 30px;
+}
+
+.sidenav h4::after{
+    position: absolute;
+    content: "";
+    background: rgb(20, 2, 2);
+    width: 70%;
+    height: 1px;
+    /* move the line to the left */
+    left: 35px;
+    /* move the line below the title */
+    bottom: -10px;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+    font-weight: 400;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    font-size: 36px;
+    padding-top: 80px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+
+#sidebarTag {
+    /* set position to fix, at bottom the screen */
+    position: fixed;
+    top: 75%;
+    z-index: 99;
+    height: 40px;
+    width: 160px;
+    left: -60px;
+    padding: 13px 18px;
+    background-color: #1a508b;
+    border-radius: 0 0 6px 6px;
+    -webkit-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+    transition: 0.5s;
+}
+
+
+
+#sidebarTag a {
+    /* Get rid of the underline */
+    font-size: 15px;
+    text-decoration: none;
+    text-align: center;
+}
+
+#siderbarTag:hover {
+    /* change the sidetag colour when its hovered on */
+    opacity: 1;
+    background-color: #50024d;
+}
+#sidebarTag a:hover {
+    /* Get rid of the underline */
+    color: #e48257;
+}
+
+
+
+/* Help to scroll with margin correction due to fixed header */
+/* fix found from https://stackoverflow.com/questions/10732690/offsetting-an-html-anchor-to-adjust-for-fixed-header */
+section {
+    position: relative;
+}
+section span{
+    position: absolute;
+    top: -110px;
+}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+
+#articlebox {
+    /* make the transition smoother */
+    transition: 0.5s;
+    padding: 20px;
+}
+#articlebox h1, h2, h3{
+    font-family: 'Roboto', serif;
+
+}
+
+#articlebox p{
+    /* make all paragrah start with an indent */
+    text-indent: 40px;
+    margin-top: 20px;
+}
+
+#articlebox p{
+    /* make all paragrah start with an indent */
+    text-indent: 40px;
+    margin-top: 20px;
+}
+
+#articlebox a{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    color: #50024d;
+
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* padding for figure captions */
+
+.figure{
+    width: 100%;
+}
+.figure-padding{
+
+    padding: 0px 60px;
+}

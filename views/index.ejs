@@ -1,116 +1,369 @@
 <%- include('partials/header'); %>
 
-<div class="container" style="padding-top: 50px;">
-    <h2 style="padding-bottom: 20px;"> Recent articles</h2>
-    <table class="table table-hover table-bordered">
-        <thead class="thead-dark">
-            <tr>
-                <th>Original articles</th>
-            </tr>
-        </thead>
-        <tbody>
+</header>
 
-            <tr>
-                <td><a href="/recent-article/original/dosimetric.pdf" target="_blank">
-                        DOSIMETRIC EVALUATION OF RADIATION DOSE RATE EFFECT IN RESPIRATORY GATED INTENSITY MODULATED
-                        RADIATION THERAPY
-                    </a>
-                    <p style="font-size: 13px;">
-                        Khamfongkhruea C, Tannanonta C, Thongsawad S
-                        <br>
-                        Biomed Imaging Interv J 2012; 8(1):e5
+<body style="padding-top: 95px;">
+
+    <!-- Dismissable notice below the navbar to inform user of any notice -->
+    <div>
+        <div class="notice">
+            <div class="ui-highlight">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <p>
+                        Our Journal will be accepting submission starting from 1st of March 2021.
                     </p>
-                </td>
-            </tr>
-
-            <tr>
-                <td><a href="/recent-article/original/Anatomical variations.pdf" target="_blank">
-                        ANATOMICAL VARIATIONS OF PULMONARY VENOUS DRAINAGE IN THAI PEOPLE: MULTIDETECTOR CT STUDY
-                    </a>
-                    <p style="font-size: 13px;">
-                        Wannasopha Y, Oilmungmool N, Euathrongchit J
-                        <br>
-                        Biomed Imaging Interv J 2012; 8(1):e4
+                    <p>
+                        The BIIJ journal websites will be undergoing maintenance on Monday April 20 from 12:00 am to
+                        5:00 pm Malaysian Time UTC+8. During this window, we apologize for the inconvenience if you
+                        are
+                        unable to view our site.
                     </p>
-                </td>
-            </tr>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            <tr>
-                <td><a href="/recent-article/original/A phase II study.pdf" target="_blank">
-                        A PHASE II STUDY OF OXALIPLATIN WITH 5-FU/FOLINIC ACID AND CONCOMITANT RADIOTHERAPY AS A
-                        PREOPERATIVE TREATMENT IN PATIENTS WITH LOCALLY ADVANCED RECTAL CANCER
+
+    <!-- Implement modal popup to promote regional conferences. 
+    This modal will pop up by itself, everytime a user visit the home page.
+    https://getbootstrap.com/docs/4.0/components/modal/ - Documentation for Modal
+    Inside the modal we embed the promotional material, with an anchor element to the respective page.
+
+    Modal setting: large and content centered -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="promotionPopUp" tabindex="-1" role="dialog" aria-labelledby="promotionLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <div id="carouselConference" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselConference" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselConference" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselConference" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <a href="https://www.apscvir2021.com" class="d-block w-100" alt="..."
+                                        target="_blank"><img src="images/events/apscvir.jpg" style="width:100%;"></a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href="https://www.aocr2021.com" class="d-block w-100" alt="..."
+                                        target="_blank"><img src="images/events/aocr.jpg" style="width:100%;"></a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href="https://www.aocnr2021.org/" class="d-block w-100" alt="..."
+                                        target="_blank"><img src="images/events/aocnr.jpg" style="width:100%;"></a>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselConference"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselConference"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class=" text-center">
+                    <!-- Initially did not work but changed from data-dismiss to data-bs-dismiss works after troubleshoot
+                     https://stackoverflow.com/questions/38537651/bootstrap-close-modal-not-working -->
+                    <form method="get" action="pages/events.html">
+                        <button type="submit" class="btn btn-primary">More Events</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- This pop the modal up when the DOM has finished loading. -->
+    <!-- <script>
+        $(document).ready(function () {
+            setTimeout(function () {
+                $('#promotionPopUp').modal('show');
+            }, 1000);
+        });
+    </script> -->
+
+    <!-- a carousel that consist of articles in press, which rotates among itselfs. -->
+    <div id="articleCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner" id="carousel_slides">
+
+        </div>
+        <script>
+
+            let volume = selectVolume(0);
+            for (let j = 0; j < type_list.length; j++){
+                for (let i = 0; i < volume[type_list[j]].length; i++) {
+                let main_div = document.createElement("div");
+                if(i==0 && j ==0){
+                	main_div.className = "carousel-item active";
+                } else {
+                    main_div.className = "carousel-item";
+                }
+
+                let sub_div = document.createElement("div");
+                sub_div.className = "container-fluid articleTitle";
+                let title_div = document.createElement("div");
+                title_div.className = "container px-5 articleType";
+                let title = document.createElement("h6");
+                title.innerHTML = title_type[j] + " | ARTICLE IN PRESS"
+
+                title_div.appendChild(title);
+                sub_div.appendChild(title_div);
+
+                let article_div = document.createElement("div");
+                article_div.className = "container px-5 articleName";
+                let link = document.createElement("a");
+                link.href = "/case" + "?" + "s=" + volume[type_list[j]][i].serial + "&id=" + volume[type_list[j]][i].content;
+                let title_name = document.createElement("h3");
+                title_name.innerHTML = volume[type_list[j]][i].title.toUpperCase();
+                    
+                link.appendChild(title_name);
+                article_div.appendChild(link);
+
+                sub_div.appendChild(article_div);
+
+                let author_div = document.createElement("div");
+                author_div.className = "container px-5 articleAuthor";
+                let author_name = document.createElement("h6");
+                author_name.innerHTML = volume[type_list[j]][i].author.toUpperCase();
+                author_div.appendChild(author_name);
+
+                sub_div.appendChild(author_div);
+                main_div.appendChild(sub_div);
+                document.getElementById("carousel_slides").appendChild(main_div);
+            }
+            }
+            
+       
+        </script>
+
+
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#articleCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#articleCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- main pages components -->
+    <!-- uses the bootstrap grid system currently will divides the main page into two column, the left is the article column which take up 8 parts 
+         in big device and full size in smaller devices -->
+    <!-- Right side is editor, journal information that only usually takes up 4 parts of the screen in large device and full column in small devices. -->
+    <div class="row">
+        <div class="col-md-8 col-sm-12 px-5 py-5">
+            <div class="container">
+                <h2 id="highlight-title" class="border-at-bottom">Issue Highlight</h2>
+                <ul class="nav nav-tabs" id="articleTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="case-report-tab" data-bs-toggle="tab"
+                            data-bs-target="#case_report" type="button" role="tab" aria-controls="home"
+                            aria-selected="true">Case Report</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="original-article-tab" data-bs-toggle="tab"
+                            data-bs-target="#original_article" type="button" role="tab" aria-controls="profile"
+                            aria-selected="false">Original</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="articleTabContent">
+                    <div class="tab-pane fade show active" id="case_report" role="tabpanel"
+                        aria-labelledby="case-report-tab">
+                        <!-- This contain the highlighted articles. -->
+                        <!-- Clicking on the title will take you to that article -->
+                        <ol id="case_list">
+                        </ol>
+
+                        <script>
+                            let case_report = selectVolume(0);
+                            for (let i = 0; i < case_report["report"].length; i++) {
+                                // create list element
+                                let list = document.createElement("li");
+                                // create div element and assign classes
+                                let div = document.createElement("div");
+                                div.className = "container box-upper";
+                                // create link element and assign href
+                                let link = document.createElement("a");
+                                link.href = "/case" + "?" + "s=" + case_report["report"][i].serial + "&id=" + case_report["report"][i].content;
+                                // create title element and assigned innerHTML which is the article title
+                                let title = document.createElement("h5");
+                                title.innerHTML = case_report["report"][i].title;
+                                // create paragraph element and assigned author name
+                                let paragraph = document.createElement("p");
+                                paragraph.innerHTML = case_report["report"][i].author;
+
+                                // append the title to link, append link to div, append paragraph div, append div to list
+                                link.appendChild(title);
+                                div.appendChild(link);
+                                div.appendChild(paragraph);
+                                list.appendChild(div);
+                                // append list to main list
+                                document.getElementById("case_list").appendChild(list);
+                            }
+                        </script>
+
+
+
+
+                    </div>
+                    <div class="tab-pane fade" id="original_article" role="tabpanel"
+                        aria-labelledby="original-article-tab">
+                        <ol id="original_list">
+                        </ol>
+
+                        <script>
+                            let original_article = selectVolume(0);
+                            for (let i = 0; i < original_article["original"].length; i++) {
+                                // create list element
+                                let list = document.createElement("li");
+                                // create div element and assign classes
+                                let div = document.createElement("div");
+                                div.className = "container box-upper";
+                                // create link element and assign href
+                                let link = document.createElement("a");
+                                link.href = "/case" + "?" + "s=" + original_article["original"][i].serial + "&id=" + original_article["original"][i].content;
+                                // create title element and assigned innerHTML which is the article title
+                                let title = document.createElement("h5");
+                                title.innerHTML = original_article["original"][i].title;
+                                // create paragraph element and assigned author name
+                                let paragraph = document.createElement("p");
+                                paragraph.innerHTML = original_article["original"][i].author;
+
+                                // append the title to link, append link to div, append paragraph div, append div to list
+                                link.appendChild(title);
+                                div.appendChild(link);
+                                div.appendChild(paragraph);
+                                list.appendChild(div);
+                                // append list to main list
+                                document.getElementById("original_list").appendChild(list);
+                            }
+                        </script>
+                    </div>
+
+
+                </div>
+
+
+                <!-- <h2 class="border-at-bottom mainpage-title">Video Highlight</h2>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 mb-4">
+                            <div class="card border-dark">
+                                <div class="card-header bg-info">
+                                    <h5>MYSIR Webinar - 2020</h5>
+                                </div>
+                                <div class="card-body video-card">
+                                    <p class="card-text">Technique, tips and bleeding in solid organ and difficult
+                                        biopsies</p>
+                                    <div class="embed-responsive-16by9 video-center">
+                                        <iframe class="embed-responsive-item w-75"
+                                            src="https://www.youtube.com/embed/_sUMxMUtctQ" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6 mb-4">
+                            <div class="card border-dark">
+                                <div class="card-header bg-info">
+                                    <h5>MYSIR Webinar - 2020</h5>
+                                </div>
+                                <div class="card-body video-card">
+                                    <p class="card-text">Hepatobiliary Intervention, chemoembolisation and SIRT
+                                        techniques</p>
+                                    <div class="embed-responsive-16by9 video-center">
+                                        <iframe class="embed-responsive-item w-75"
+                                            src="https://www.youtube.com/embed/p46OS06zCwo" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12 py-5">
+            <!-- this contain the main cover of the journal, which links to the article page. -->
+            <!-- <div class="px-5 container">
+                <h4 class="border-at-bottom">Current Issue</h4>
+                <figure class="figure py-4">
+                    <a href="pages/articles.html">
+                        <img class="figure-img img-fluid rounded img-thumbnail mx-auto d-block w-75"
+                            src="images/main page/journal-cover.png" alt="journal cover issue">
                     </a>
-                    <p style="font-size: 13px;">
-                        Chitapanarux I, Chitapanarux T, Tharavichitkul E, Mayurasakorn S, Siriwittayakorn P, Yamada S,
-                        Lorvidhaya V
-                        <br>
-                        Biomed Imaging Interv J 2011; 7(4):e25
-                    </p>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                    <div class="d-block w-75 mx-auto" id="title-caption">
+                        <figcaption class="figure-caption figure-padding">
+                            <p style="text-align: center;">
+                                BIIJ Volume 2
+                            </p>
+                        </figcaption>
+                    </div>
+                </figure>
+            </div> -->
+            <!-- contain the introduction to the editor in chief. -->
+            <div class="px-5 container">
+                <h4 class="border-at-bottom">New Editor in Chief of BIIJ</h4>
+                <figure class="figure py-4">
+                    <img class="figure-img img-fluid rounded img-thumbnail mx-auto d-block w-75"
+                        src="images/main page/Kartini-Rahmat.jpg" alt="picture of Professor Kartini">
+                    <div class="d-block w-75 mx-auto" id="title-caption">
+                        <h6>Professor Dr. Kartini Rahmat</h6>
+                        <h6>Department of Biomedical Imaging</h6>
+                        <h6>Faculty of Medicine</h6>
+                        <h6>University of Malaya</h6>
+                        <figcaption class="figure-caption figure-padding">
+                            <p>
+                                We are delighted that Professor Dr. Kartini has taken on the role of Editor-in-Chief of
+                                Biomedial Imaging and Intervention Journal.
+                                We would like to extend a warm welcome to Prof. Kartini as she takes up this new
+                                role.
+                            </p>
 
-    <table class="table table-hover table-bordered">
-        <thead class="thead-dark">
-            <tr>
-                <th>Case Report</th>
-            </tr>
-        </thead>
-        <tbody>
+                            <p>
+                                Prof. Kartini serves as a professor in radiology at the Department of Biomedical Imaging
+                                at Medical University of Malaya, Malaysia. Dr. Kartini has ample editorial
+                                experience as she worked as editor for the last version of BIIJ. She serves in
+                                various positions in national and international societies, committees and working
+                                groups.
+                            </p>
 
-            <tr>
-                <td><a href="/recent-article/case report/Fine needle aspiration.pdf" target="_blank">
-                    FINE NEEDLE ASPIRATION OF LUNG LESION: LATERAL AND TRANSPECTORAL APPROACH
-                    </a>
-                    <p style="font-size: 13px;">
-                        Smith K
-                        <br>
-                        Biomed Imaging Interv J 2012; 8(1):e2
-                    </p>
-                </td>
-            </tr>
+                            <p>
+                                Her research interests are focused on breast and neuro-radiology with practical
+                                implications
+                                on
+                                patient care, biomarkers and clinical decision rules.
+                            </p>
 
-            <tr>
-                <td><a href="/recent-article/case report/Ultrasound evaluation of penile fractures.pdf" target="_blank">
-                    ULTRASOUND EVALUATION OF PENILE FRACTURES
-                    </a>
-                    <p style="font-size: 13px;">
-                        Kachewar SG, Kulkarni DS
-                        <br>
-                        Biomed Imaging Interv J 2011; 7(4):e27
-                    </p>
-                </td>
-            </tr>
-
-            <tr>
-                <td><a href="/recent-article/case report/Primary intracranial hemangiopericytoma.pdf" target="_blank">
-                    PRIMARY INTRACRANIAL HEMANGIOPERICYTOMA WITH MESENTERIC AND RETROPERITONEAL SPREAD
-                    </a>
-                    <p style="font-size: 13px;">
-                        Yesilkaya Y, Akinci D, Topcuoglu M, Tanas O, Altundag K
-                        <br>
-                        Biomed Imaging Interv J 2011; 7(4):e24
-                    </p>
-                </td>
-            </tr>
-
-            <tr>
-                <td><a href="/recent-article/original/A phase II study.pdf" target="_blank">
-                    EPIDURAL HAEMORRHAGE DURING EMBOLISATION: A RARE COMPLICATION OF INTRA-ARTERIAL EMBOLISATION OF VERTEBRAL METASTASES
-                    </a>
-                    <p style="font-size: 13px;">
-                        Hashim H, Abdul Kadir KA
-                        <br>
-                        Biomed Imaging Interv J 2011; 7(4):e26
-                    </p>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-</div>
+                            <p>
+                                It is Dr. Kartini's aim to further improve upon the quality, speed and transparency of
+                                publishing in
+                                the Biomedical Imaging and Intervention Journal
+                            </p>
+                        </figcaption>
+                    </div>
+                </figure>
+            </div>
+        </div>
+    </div>
 
 
 
-<%- include('partials/footer'); %>
+
+    <%- include('partials/footer'); %>

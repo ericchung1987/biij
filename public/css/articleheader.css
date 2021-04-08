@@ -1,0 +1,144 @@
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* set the article header page with a gradient background */
+#articleTitle{
+    position: relative;
+    background: rgb(13,51,93);
+    background: linear-gradient(163deg, rgba(13,51,93,1) 48%, rgba(193,161,211,1) 100%);
+    width: 100%;
+    margin-top: 95px;
+    overflow-x: hidden;
+}
+
+#articleType {
+
+    color: rgba(255,255,255,.55);
+    padding-bottom: 10px;
+    padding-top: 30px;
+
+}
+
+#articleAuthor {
+
+    color: rgba(255,255,255,.55);
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+#articleName{
+    color: rgba(255,255,255,.55);
+    padding: 10px 0px;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* CSS for the navigation menu */
+
+#navigatePrevious {
+    /* set position to fix, at bottom the screen */
+    position: absolute;
+    top: 30%;
+    z-index: 0;
+    height: 90px;
+    width: 20px;
+    left: 0px;
+    padding: 13px 18px;
+    background-color: rgba(26, 80, 139, 0.4);
+    border-radius: 0px 6px 6px 0px;
+}
+
+#navigatePrevious i{
+    position: absolute;
+    top: 35px;
+    left: 10px;
+    color:  rgba(255,255,255,.55);
+    font-size: 20px;
+    text-align: center;
+}
+
+#navigatePreviousBox {
+    /* set position to fix, at bottom the screen */
+    position: absolute;
+    top: 30%;
+    z-index: 1;
+    height: 90px;
+    width: 250px;
+    
+    padding: 13px 18px;
+    background-color: rgba(26, 80, 139, 0.8);
+    border-radius: 0px 6px 6px 0px;
+    transition: 0.2s;
+}
+
+.left-d-navigation{
+    left: -250px;
+}
+.left-on-navigation{
+    left:0px;
+}
+
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+#navigateNext {
+    position: absolute;
+    top: 30%;
+    z-index: 0;
+    height: 90px;
+    width: 20px;
+    right: 0px;
+    padding: 13px 18px;
+    background-color: rgba(26, 80, 139, 0.4);
+    border-radius: 6px 0px 0px 6px;
+}
+
+#navigateNext i{
+    position: absolute;
+    color: rgba(255,255,255,.55);
+    top: 35px;
+    left: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#navigateNextBox {
+    position: absolute;
+    top: 30%;
+    z-index: 1;
+    height: 90px;
+    width: 250px;
+    
+    padding: 13px 30px 13px 0px;
+    background-color: rgba(26, 80, 139, 0.8);
+    border-radius: 6px 0px 0px 6px;
+    transition: 0.2s;
+}
+
+.right-d-navigation{
+    right:-250px;
+    
+}
+.right-on-navigation{
+    right: 0px;
+}
+/* --------------------------------------------------------------------------------------------------------------------------------------------------- */
+.nav-box-title{
+    text-decoration: none;
+    font-size: 12px;
+    padding-left: 30px;
+    padding-bottom: 5px;
+    color: #e48257;
+    margin: 0px;
+}
+
+.nav-box-name{
+    text-decoration: none;
+    font-size: 10px;
+    padding-left: 30px;
+    color: white;
+    margin: 0px;
+}
+
+.dark-mode-header{
+    background: rgb(41,41,41) !important;
+    background: linear-gradient(163deg, rgba(41,41,41,1) 48%, rgba(0,0,0,1) 100%) !important;; 
+    transition: 0.5s;
+}

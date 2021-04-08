@@ -1,34 +1,44 @@
+// import { returnArticle } from 'articlelist.mjs'
 const http = require('http');
 const port = process.env.PORT || 3000
 const express = require("express");
 const bodyParser = require("body-parser");
+const favicon = require('express-favicon');
+const ejs = require('ejs');
 
 const app = express();
 
 app.set("view engine", "ejs");
-app.use(express.static(__dirname+'/public'));
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(__dirname + '/public'));
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: true
+}));
 
-app.get("/", function(req, res){
-    res.render("index.ejs");
+app.use(favicon(__dirname + '/favicon.ico'));
+
+
+app.get("/", function (req, res) {
+  res.render("index.ejs");
 });
 
-app.get("/current-issue", function(req, res){
-    res.render("current-issue.ejs");
+
+app.get("/submission", function (req, res) {
+  res.render("submission.ejs");
 });
 
-app.get("/editorial", function(req, res){
-    res.render("editorial.ejs");
+app.get("/case", function (req, res) {
+  let serial = req.query.s;
+  let content = req.query.id
+  res.render("case.ejs", {serial: serial, content: content});
+
 });
 
-app.get("/instruction-work", function(req, res){
-    res.render("instruction-work.ejs");
+
+app.get("/tos", function (req, res) {
+  res.render("tos.ejs");
 });
 
-app.get("/workflow", function(req, res){
-    res.render("workflow.ejs");
+app.listen(port, () => {
+  console.log(`Server running at port ` + port);
 });
-
-app.listen(port,() => {
-    console.log(`Server running at port `+port);
-  });
