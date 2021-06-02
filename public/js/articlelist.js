@@ -44,6 +44,18 @@ const article_lib = [
             content: 'issue/vol_0/ori_0'
         }
     ]
+},
+{
+    report: [
+    ],
+    original: [
+        {
+            title: "A computed tomography study of intracranial posterior circulation calcification among patients with posterior circulation infarct",
+            author: "JS Ram Singh (MBBS, M.Med)1, KA Sayuti (MBBCh, M.Med)2, S Subramaniam (MBBS, M.Med)1",
+            serial: "10201",
+            content: 'issue/vol_1/ori_0'
+        }
+    ]
 }
 ]
 
